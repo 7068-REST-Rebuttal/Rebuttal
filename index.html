@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+  <title>Anonymous Rebuttal Figures</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="top-nav" aria-label="Reviewer figure navigation">
+      <a class="nav-link" href="#asd-weights">
+        <span class="nav-kicker">R-2Kuf</span>
+        <span class="nav-title">ASD Loss Weights</span>
+      </a>
+      <a class="nav-link" href="#context-cache-length">
+        <span class="nav-kicker">R-2Kuf</span>
+        <span class="nav-title">ID-Context Cache Length</span>
+      </a>
+      <a class="nav-link" href="#long-time-stability">
+        <span class="nav-kicker">R-2Kuf / R-oTWk</span>
+        <span class="nav-title">Long-Time Stability</span>
+      </a>
+      <a class="nav-link" href="#latency-breakdown">
+        <span class="nav-kicker">R-oTWk</span>
+        <span class="nav-title">Latency Breakdown</span>
+      </a>
+      <a class="nav-link" href="#text-prompts-ablation">
+        <span class="nav-kicker">R-oTWk</span>
+        <span class="nav-title">Text-Prompt Ablation</span>
+      </a>
+      <a class="nav-link" href="#whisper-streaming">
+        <span class="nav-kicker">R-a5nZ</span>
+        <span class="nav-title">Whisper Encoder</span>
+      </a>
+      <a class="nav-link" href="#comparison-with-read">
+        <span class="nav-kicker">R-a5nZ</span>
+        <span class="nav-title">Comparison with READ</span>
+      </a>
+    </nav>
+
+    <main class="sections">
+      <section id="asd-weights" class="figure-section" aria-labelledby="asd-weights-label">
+        <figure class="figure-card">
+          <div class="figure-meta">
+            <div class="badge-row">
+              <span class="badge">R-2Kuf</span>
+              <span class="badge badge-muted">Hyperparameter Sensitivity</span>
+            </div>
+            <p id="asd-weights-label" class="section-label">Sensitivity to ASD Loss Weights</p>
+          </div>
+          <img
+            src="assets/figures/asd-weights.png"
+            alt="Table image reporting sensitivity to the contrastive loss weight alpha and smoothness weight beta, with FID, FVD, and Sync-C measured on HDTF."
+            loading="lazy"
+          >
+          <figcaption>
+            <span class="caption-label">Table R1.</span>
+            Sensitivity analysis of the ASD hyperparameters (contrastive weight <span class="math-inline">\(\alpha\)</span> and smoothness weight <span class="math-inline">\(\beta\)</span>) on the HDTF dataset.
+            The FID, FVD, and Sync-C metrics are reported under different weight configurations.
+            All training and testing protocols strictly align with the original manuscript to ensure fair comparison.
+            Best values are highlighted in <span class="math-inline">\(\textbf{bold}\)</span>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="context-cache-length" class="figure-section" aria-labelledby="context-cache-length-label">
+        <figure class="figure-card">
+          <div class="figure-meta">
+            <div class="badge-row">
+              <span class="badge">R-2Kuf</span>
+              <span class="badge badge-muted">Hyperparameter Sensitivity</span>
+            </div>
+            <p id="context-cache-length-label" class="section-label">Sensitivity to ID-Context Cache Length</p>
+          </div>
+          <img
+            src="assets/figures/context-cache-length.png"
+            alt="Figure showing runtime bars and raw-value curves for FID, FVD, and Sync-C as functions of ID-Context Cache Length on HDTF."
+            loading="lazy"
+          >
+          <figcaption>
+            <span class="caption-label">Figure R1.</span>
+            Impact of ID-Context Cache length on generative quality and backbone runtime overhead on the HDTF dataset.
+            The backbone runtime bars and core evaluation metrics (FID, FVD, and Sync-C) curves are reported across variable cache lengths.
+            All experimental setups and evaluation pipelines are kept strictly consistent with the original manuscript.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="long-time-stability" class="figure-section" aria-labelledby="long-time-stability-label">
+        <figure class="figure-card">
+          <div class="figure-meta">
+            <div class="badge-row">
+              <span class="badge">R-2Kuf</span>
+              <span class="badge">R-oTWk</span>
+              <span class="badge badge-muted">Shared Concern</span>
+            </div>
+            <p id="long-time-stability-label" class="section-label">Long-time Stability</p>
+          </div>
+          <img
+            src="assets/figures/long-time-stability.png"
+            alt="Figure showing FID, FVD, and Sync-C as functions of generation duration on HDTF, with min-max bands and relative-span annotations."
+            loading="lazy"
+          >
+          <figcaption>
+            <span class="caption-label">Figure R2.</span>
+            Long-time generation stability analysis on the HDTF dataset.
+            The evolution of major performance metrics (FID, FVD, and Sync-C) is evaluated across extended generation durations.
+            Each panel illustrates a specific metric, annotated with <span class="math-inline">\(\downarrow\)</span> to indicate lower-is-better and <span class="math-inline">\(\uparrow\)</span> to indicate higher-is-better.
+            The shaded bands denote the empirical minimum-to-maximum intervals, and the annotated percentages quantify the relative fluctuation span, calculated as the minimum-to-maximum difference divided by the mean.
+            All experimental and testing procedures are kept strictly consistent with the original manuscript.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="latency-breakdown" class="figure-section" aria-labelledby="latency-breakdown-label">
+        <figure class="figure-card">
+          <div class="figure-meta">
+            <div class="badge-row">
+              <span class="badge">R-oTWk</span>
+              <span class="badge badge-muted">System Analysis</span>
+            </div>
+            <p id="latency-breakdown-label" class="section-label">Latency Breakdown</p>
+          </div>
+          <img
+            src="assets/figures/latency-breakdown.png"
+            alt="Table image reporting first-chunk and subsequent-chunk latency for VAE Encode, SpeechAE, A2V-DiT, VAE Decode, and end-to-end inference."
+            loading="lazy"
+          >
+          <figcaption>
+            <span class="caption-label">Table R2.</span>
+            Detailed latency breakdown of the REST framework.
+            All experimental parameters are maintained strictly consistent with the main manuscript.
+            Inference is evaluated on a single A100 GPU via a chunk-by-chunk streaming paradigm, generating videos at a <span class="math-inline">\(512 \times 512\)</span> resolution with 8-step inference sampling and a <span class="math-inline">\(1\)</span>-second chunk duration.
+            The rows delineate the computational overhead for the first chunk versus subsequent chunks during streaming inference.
+            The columns decompose the time cost across individual modules: VAE Encode, SpeechAE (inclusive of the Whisper encoder), A2V-DiT, VAE Decode, and the overall end-to-end pipeline.
+            <span class="math-inline">\((-)\)</span> indicates that reference image encoding is bypassed for subsequent chunks, facilitated by the ID-Sink mechanism.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="text-prompts-ablation" class="figure-section" aria-labelledby="text-prompts-ablation-label">
+        <figure class="figure-card">
+          <div class="figure-meta">
+            <div class="badge-row">
+              <span class="badge">R-oTWk</span>
+              <span class="badge badge-muted">Ablation</span>
+            </div>
+            <p id="text-prompts-ablation-label" class="section-label">Text-Prompt Ablation</p>
+          </div>
+          <img
+            src="assets/figures/text-prompts-ablation.png"
+            alt="Table image comparing the model with and without text prompts using FID, FVD, and Sync-C."
+            loading="lazy"
+          >
+          <figcaption>
+            <span class="caption-label">Table R3.</span>
+            Quantitative ablation of text prompting on the HDTF dataset.
+            The row labeled w/ Text-Prompt reports the performance of the default configuration with text prompts.
+            The row labeled w/o Text-Prompt presents the ablated variant where the text prompt is strictly zeroed out while all other components remain unchanged.
+            The columns detail the corresponding FID (<span class="math-inline">\(\downarrow\)</span>), FVD (<span class="math-inline">\(\downarrow\)</span>), and Sync-C (<span class="math-inline">\(\uparrow\)</span>) metrics.
+            All inference settings are kept strictly consistent with the original manuscript, with <span class="math-inline">\(\textbf{bold}\)</span> denoting better performance.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="whisper-streaming" class="figure-section" aria-labelledby="whisper-streaming-label">
+        <figure class="figure-card">
+          <div class="figure-meta">
+            <div class="badge-row">
+              <span class="badge">R-a5nZ</span>
+              <span class="badge badge-muted">Streaming Front End</span>
+            </div>
+            <p id="whisper-streaming-label" class="section-label">Streaming Audio Front-End / Backbone Comparison</p>
+          </div>
+          <img
+            src="assets/figures/whisper-streaming.png"
+            alt="Table image comparing Full-Whisper and Chunk-Whisper front ends under non-streaming or streaming backbones using FID, FVD, and Sync-C."
+            loading="lazy"
+          >
+          <figcaption>
+            <span class="caption-label">Table R4.</span>
+            Quantitative comparison of Whisper-based audio frontends and backbone modes on the HDTF dataset.
+            The Full-Whisper frontend denotes the frontend utilizing the complete global audio context, whereas Chunk-Whisper represents whisper embeddings extracted via a true chunk-by-chunk streaming paradigm, precluding history or future context.
+            Streaming backbone corresponds to the proposed causal architecture, and Non-streaming indicates the parallel network variant composed of identical modules.
+            The rows evaluate specific frontend-backbone configurations, with the columns detailing the corresponding FID (<span class="math-inline">\(\downarrow\)</span>), FVD (<span class="math-inline">\(\downarrow\)</span>), and Sync-C (<span class="math-inline">\(\uparrow\)</span>) metrics.
+            All inference pipelines are maintained strictly identical to the main manuscript.
+            The best performance per metric is highlighted in <span class="math-inline">\(\textbf{bold}\)</span>.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="comparison-with-read" class="figure-section" aria-labelledby="comparison-with-read-label">
+        <figure class="figure-card">
+          <div class="figure-meta">
+            <div class="badge-row">
+              <span class="badge">R-a5nZ</span>
+              <span class="badge badge-muted">Comparative Evaluation</span>
+            </div>
+            <p id="comparison-with-read-label" class="section-label">Comparison with READ</p>
+          </div>
+          <img
+            src="assets/figures/comparison-with-read.png"
+            alt="Table image comparing READ and REST in terms of streaming support, first-chunk latency, backbone runtime, FID, FVD, and Sync-C."
+            loading="lazy"
+          >
+          <figcaption>
+            <span class="caption-label">Table R5.</span>
+            Quantitative comparison between READ and the proposed REST framework on the HDTF dataset.
+            The columns detail the streaming capability, first-chunk latency, backbone runtime, and core evaluation metrics (FID <span class="math-inline">\(\downarrow\)</span>, FVD <span class="math-inline">\(\downarrow\)</span>, and Sync-C <span class="math-inline">\(\uparrow\)</span>).
+            As clarified in the footnote, the reported runtime is restricted exclusively to the backbone, ensuring identical measurement standards with READ.
+            All experimental configurations are maintained strictly identical and consistent with the original manuscript and the official guidelines of READ.
+            <strong>Bold</strong> highlights the superior value in each metric column.
+          </figcaption>
+        </figure>
+      </section>
+    </main>
+  </div>
+  <script src="assets/vendor/katex/katex.min.js" defer></script>
+  <script src="assets/vendor/katex/auto-render.min.js" defer></script>
+  <script src="assets/math.js" defer></script>
+  <script src="assets/nav.js" defer></script>
+</body>
+</html>
